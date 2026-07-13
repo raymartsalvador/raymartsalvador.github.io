@@ -1,27 +1,57 @@
-# Portfolio
+# raymartsalvador.github.io
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+Personal portfolio for **Raymart Salvador** — full-stack developer.
 
-## Development server
+Built with **Next.js (App Router)** + **Tailwind CSS**, statically exported and
+deployed to **GitHub Pages**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Stack
 
-## Code scaffolding
+- Next.js 15 (`output: 'export'` — static HTML, no server)
+- React 19 + TypeScript
+- Tailwind CSS 3
+- Self-hosted Google Fonts via `next/font` (Archivo, Space Grotesk, JetBrains Mono)
+- Dark-mode-first with a light-mode toggle (persisted in `localStorage`)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Develop
+
+```bash
+pnpm install
+pnpm dev        # http://localhost:3000
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+pnpm build      # static export → ./out
+```
 
-## Running unit tests
+## Project structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+app/                  App Router entry (layout, page, global CSS)
+components/           UI sections (Nav, Hero, Work, Experience, Stack, Contact, Footer)
+                      + client bits (ThemeToggle, CopyEmailButton, RevealObserver)
+data/projects.ts      Single source of truth for projects — add one object to add a project
+public/               Static assets served from the domain root
+  assets/images/projects/   Project screenshots
+  assets/files/             Résumé PDF
+.github/workflows/    GitHub Pages deploy (build → upload ./out → deploy)
+```
 
-## Running end-to-end tests
+## Adding a project
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Append an object to `featuredProjects` (large alternating rows) or `miniProjects`
+(the "More projects" grid) in `data/projects.ts`. No markup to copy.
 
-## Further help
+## Deploy
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds the
+static export and publishes it via the **GitHub Actions** Pages source.
+
+> One-time setup: GitHub → repo → **Settings → Pages → Build and deployment →
+> Source = "GitHub Actions"**.
+
+> Earlier versions of this site were an Angular 15 app, then a single static
+> `index.html`. Both were removed in favor of this Next.js app; history is
+> preserved in git.

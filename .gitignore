@@ -1,21 +1,25 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
+# Dependencies
 /node_modules
 npm-debug.log
 yarn-error.log
+.pnpm-debug.log
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Production build (legacy)
+/dist
+/out-tsc
 
 # IDEs and editors
 .idea/
 .project
 .classpath
-.c9/
 *.launch
 .settings/
 *.sublime-workspace
@@ -29,13 +33,8 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
 /coverage
-/libpeerconnection.log
 testem.log
-/typings
 
 # System files
 .DS_Store

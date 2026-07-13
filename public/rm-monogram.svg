@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="113" fill="#22C55E"/>
+  <text x="256" y="272" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Cascadia Code','JetBrains Mono',Consolas,monospace" font-weight="700"
+        font-size="270" fill="#0B0F1A" letter-spacing="-8">RM</text>
+</svg>
