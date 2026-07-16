@@ -49,6 +49,24 @@ export default function FeaturedProjectRow({
           className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: project.description }}
         />
+        {project.outcome && (
+          <p className="mt-5 flex items-start gap-2 font-medium text-ink-900 dark:text-white">
+            <svg
+              className="h-4 w-4 mt-1 text-run shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M22 7l-8.5 8.5-5-5L2 17" />
+              <path d="M16 7h6v6" />
+            </svg>
+            {project.outcome}
+          </p>
+        )}
         <ul className="mt-6 flex flex-wrap gap-2 mono text-xs text-slate-500 dark:text-slate-400">
           {project.tags.map((tag) => (
             <li key={tag} className="rounded-md border border-slate-200 dark:border-white/10 px-2.5 py-1">

@@ -16,6 +16,8 @@ export interface SpeakingEntry {
   description: string;
   image: string;
   alt: string;
+  /** optional proof link — event recap, photo album, recording, or slides */
+  link?: { href: string; label: string };
 }
 
 export const speakingEntries: SpeakingEntry[] = [

@@ -3,6 +3,7 @@ import MobileMenu from './MobileMenu';
 
 const links = [
   { href: '#work', label: 'Work' },
+  { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
   { href: '#stack', label: 'Stack' },
   { href: '#speaking', label: 'Speaking' },

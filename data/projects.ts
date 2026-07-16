@@ -18,6 +18,8 @@ export interface FeaturedProject {
   tags: string[];
   /** flip the image to the right on large screens */
   reversed?: boolean;
+  /** one-line real, verifiable result (users, volume, time saved) — leave unset until known */
+  outcome?: string;
 }
 
 export interface MiniProject {
@@ -34,6 +36,8 @@ export interface MiniProject {
   badge?: string;
   /** render the private/on-prem lock treatment instead of a screenshot */
   internal?: boolean;
+  /** one-line real, verifiable result (users, volume, time saved) — leave unset until known */
+  outcome?: string;
 }
 
 export const featuredProjects: FeaturedProject[] = [

@@ -1,8 +1,20 @@
 const groups = [
-  { title: 'Languages', items: 'C#, TypeScript, JavaScript, SQL, Python, Java' },
-  { title: 'Frameworks', items: 'ASP.NET Core, Angular, Next.js, React, Express.js' },
-  { title: 'Cloud & Data', items: 'Azure, Supabase, PostgreSQL, SQL Server, Docker' },
-  { title: 'DevOps & Tools', items: 'CI/CD, Git, GitLab, IIS, Postman' },
+  {
+    title: 'Languages',
+    items: ['C#', 'TypeScript', 'JavaScript', 'SQL', 'Python', 'Java'],
+  },
+  {
+    title: 'Frameworks',
+    items: ['ASP.NET Core', 'Next.js', 'React', 'Angular', 'Express.js'],
+  },
+  {
+    title: 'Cloud & Data',
+    items: ['Azure', 'Supabase', 'PostgreSQL', 'SQL Server', 'Docker'],
+  },
+  {
+    title: 'DevOps & Tools',
+    items: ['CI/CD', 'Git', 'GitLab', 'IIS', 'Postman'],
+  },
 ];
 
 export default function Stack() {
@@ -13,14 +25,30 @@ export default function Stack() {
         <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold tracking-tight">
           What I build with
         </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-300">
+          A .NET backbone for enterprise work, a JS/TS toolkit for products — and whatever the
+          problem actually needs.
+        </p>
       </div>
-      <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-8 reveal">
+      <div className="mt-10 grid sm:grid-cols-2 gap-5 reveal">
         {groups.map((g) => (
-          <div key={g.title}>
+          <div
+            key={g.title}
+            className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-6"
+          >
             <h3 className="mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">
               {g.title}
             </h3>
-            <p className="mt-3 text-slate-700 dark:text-slate-200 leading-relaxed">{g.items}</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {g.items.map((item) => (
+                <li
+                  key={item}
+                  className="mono text-sm rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-3 py-1.5 text-slate-700 dark:text-slate-200"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

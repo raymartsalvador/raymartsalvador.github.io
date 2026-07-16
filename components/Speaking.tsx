@@ -41,6 +41,28 @@ export default function Speaking() {
                 <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed grow">
                   {entry.description}
                 </p>
+                {entry.link && (
+                  <a
+                    href={entry.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-run hover:text-run-400 transition-colors duration-200 cursor-pointer"
+                  >
+                    {entry.link.label}
+                    <svg
+                      className="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17L17 7M8 7h9v9" />
+                    </svg>
+                  </a>
+                )}
               </div>
             </article>
           ))}
