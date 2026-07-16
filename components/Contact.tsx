@@ -48,6 +48,24 @@ export default function Contact() {
               raymartgsalvador@gmail.com
             </a>
             <CopyEmailButton />
+            <a
+              href="/assets/files/RaymartSalvador.pdf"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 dark:border-white/15 px-5 py-3 font-medium text-ink-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 cursor-pointer"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+              </svg>
+              Résumé
+            </a>
           </div>
           <div className="mt-8 flex items-center justify-center gap-5 text-slate-500 dark:text-slate-400">
             {socials.map((s) => (

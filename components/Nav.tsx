@@ -1,4 +1,5 @@
 import ThemeToggle from './ThemeToggle';
+import MobileMenu from './MobileMenu';
 
 const links = [
   { href: '#work', label: 'Work' },
@@ -11,7 +12,7 @@ const links = [
 export default function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-40 px-4">
-      <nav className="mx-auto mt-4 max-w-6xl flex items-center justify-between rounded-2xl border border-slate-200/70 dark:border-white/10 bg-white/80 dark:bg-ink-900/70 backdrop-blur-md px-4 sm:px-6 py-3 shadow-sm">
+      <nav className="relative mx-auto mt-4 max-w-6xl flex items-center justify-between rounded-2xl border border-slate-200/70 dark:border-white/10 bg-white/80 dark:bg-ink-900/70 backdrop-blur-md px-4 sm:px-6 py-3 shadow-sm">
         <a
           href="#top"
           className="flex items-center gap-2 font-heading font-bold tracking-tight text-lg cursor-pointer"
@@ -50,6 +51,7 @@ export default function Nav() {
               <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
             </svg>
           </a>
+          <MobileMenu links={links} />
         </div>
       </nav>
     </header>

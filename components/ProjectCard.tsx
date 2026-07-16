@@ -36,7 +36,9 @@ function CardMedia({ project }: { project: MiniProject }) {
         src={project.image}
         alt={project.alt}
         loading="lazy"
-        className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
+        className={`w-full h-full object-cover object-top ${
+          project.url ? 'group-hover:scale-[1.03] transition-transform duration-300' : ''
+        }`}
       />
       {project.badge && (
         <span className="absolute bottom-2.5 right-2.5 mono text-[10px] text-white/90 bg-black/55 rounded px-1.5 py-0.5">

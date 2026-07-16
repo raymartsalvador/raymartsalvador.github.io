@@ -1,10 +1,19 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 export default function ThemeToggle() {
+  const [isDark, setIsDark] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
   function toggle() {
-    const isDark = document.documentElement.classList.toggle('dark');
+    const dark = document.documentElement.classList.toggle('dark');
+    setIsDark(dark);
     try {
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
     } catch {
       /* ignore storage errors */
     }
@@ -15,6 +24,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Toggle color theme"
+      aria-pressed={isDark ?? undefined}
       className="grid place-items-center h-9 w-9 rounded-lg border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-ink-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 cursor-pointer"
     >
       <svg

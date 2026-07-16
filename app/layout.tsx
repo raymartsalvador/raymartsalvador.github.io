@@ -46,7 +46,46 @@ export const metadata: Metadata = {
     description:
       'I build and ship production web apps end-to-end — enterprise systems and independent SaaS products.',
     url: 'https://raymartsalvador.github.io',
+    images: [
+      {
+        url: '/assets/images/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Raymart Salvador — Full-Stack Developer',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Raymart Salvador — Full-Stack Developer',
+    description:
+      'I build and ship production web apps end-to-end — enterprise systems and independent SaaS products.',
+    images: ['/assets/images/og.png'],
+  },
+};
+
+// Person schema for rich search results.
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Raymart Salvador',
+  url: 'https://raymartsalvador.github.io',
+  email: 'mailto:raymartgsalvador@gmail.com',
+  jobTitle: 'Full-Stack Developer',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Biñan',
+    addressRegion: 'Laguna',
+    addressCountry: 'PH',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Polytechnic University of the Philippines',
+  },
+  sameAs: [
+    'https://github.com/raymartsalvador',
+    'https://linkedin.com/in/raymartsalvador',
+  ],
 };
 
 // Runs before paint to avoid a light/dark flash on load.
@@ -65,6 +104,10 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body className="bg-white text-ink-900 dark:bg-ink-950 dark:text-slate-100 font-body antialiased selection:bg-run/30">
         {children}
