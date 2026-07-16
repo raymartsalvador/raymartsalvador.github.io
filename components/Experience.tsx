@@ -33,33 +33,39 @@ export default function Experience() {
                 <ul className="mt-4 space-y-2.5 text-slate-600 dark:text-slate-300 leading-relaxed text-[15px]">
                   <li className="flex gap-2.5">
                     <span className="text-run mt-1.5 h-1.5 w-1.5 rounded-full bg-run shrink-0" />
-                    Sole developer of an on-premise E-Resignation &amp; Clearance System deployed
-                    across an{' '}
-                    <strong className="font-medium text-ink-900 dark:text-white">
-                      8,000-employee site
-                    </strong>
-                    , processing{' '}
-                    <strong className="font-medium text-ink-900 dark:text-white">
-                      2,500+ resignations
-                    </strong>{' '}
-                    in 2 years and cutting turnaround from weeks to days.
+                    <span>
+                      Sole developer of an on-premise E-Resignation &amp; Clearance System deployed
+                      across an{' '}
+                      <strong className="font-medium text-ink-900 dark:text-white">
+                        8,000-employee site
+                      </strong>
+                      , processing{' '}
+                      <strong className="font-medium text-ink-900 dark:text-white">
+                        2,500+ resignations
+                      </strong>{' '}
+                      in 2 years and cutting turnaround from weeks to days.
+                    </span>
                   </li>
                   <li className="flex gap-2.5">
                     <span className="text-run mt-1.5 h-1.5 w-1.5 rounded-full bg-run shrink-0" />
-                    Introduced{' '}
-                    <strong className="font-medium text-ink-900 dark:text-white">
-                      ASP.NET Core 8 MVC
-                    </strong>{' '}
-                    + on-premise GitLab; my starter template is now the standard for{' '}
-                    <strong className="font-medium text-ink-900 dark:text-white">
-                      5+ developers
-                    </strong>
-                    .
+                    <span>
+                      Introduced{' '}
+                      <strong className="font-medium text-ink-900 dark:text-white">
+                        ASP.NET Core 8 MVC
+                      </strong>{' '}
+                      + on-premise GitLab; my starter template is now the standard for{' '}
+                      <strong className="font-medium text-ink-900 dark:text-white">
+                        5+ developers
+                      </strong>
+                      .
+                    </span>
                   </li>
                   <li className="flex gap-2.5">
                     <span className="text-run mt-1.5 h-1.5 w-1.5 rounded-full bg-run shrink-0" />
-                    Built a Project Management System and an Employee Information System for the same
-                    site.
+                    <span>
+                      Built a Project Management System and an Employee Information System for the
+                      same site.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -77,20 +83,24 @@ export default function Experience() {
                 <ul className="mt-4 space-y-2.5 text-slate-600 dark:text-slate-300 leading-relaxed text-[15px]">
                   <li className="flex gap-2.5">
                     <span className="text-run mt-1.5 h-1.5 w-1.5 rounded-full bg-run shrink-0" />
-                    Delivered{' '}
-                    <strong className="font-medium text-ink-900 dark:text-white">
-                      6 production sites
-                    </strong>{' '}
-                    end-to-end for businesses and government — including a queueing system serving
-                    100–500 citizens daily at the City of Biñan.
+                    <span>
+                      Delivered{' '}
+                      <strong className="font-medium text-ink-900 dark:text-white">
+                        6 production sites
+                      </strong>{' '}
+                      end-to-end for businesses and government — including a queueing system
+                      serving 100–500 citizens daily at the City of Biñan.
+                    </span>
                   </li>
                   <li className="flex gap-2.5">
                     <span className="text-run mt-1.5 h-1.5 w-1.5 rounded-full bg-run shrink-0" />
-                    Launched and operate{' '}
-                    <strong className="font-medium text-ink-900 dark:text-white">
-                      2 live SaaS products
-                    </strong>{' '}
-                    — Certify+ and Peyg — handling design, build, deploy, and support solo.
+                    <span>
+                      Launched and operate{' '}
+                      <strong className="font-medium text-ink-900 dark:text-white">
+                        2 live SaaS products
+                      </strong>{' '}
+                      — Certify+ and Peyg — handling design, build, deploy, and support solo.
+                    </span>
                   </li>
                 </ul>
               </div>
