@@ -1,35 +1,37 @@
+import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
 
+// Absolute-path anchors so the nav also works from /work/[slug]/ pages.
 const links = [
-  { href: '#work', label: 'Work' },
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#stack', label: 'Stack' },
-  { href: '#speaking', label: 'Speaking' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#work', label: 'Work' },
+  { href: '/#about', label: 'About' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#stack', label: 'Stack' },
+  { href: '/#speaking', label: 'Speaking' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-40 px-4">
       <nav className="relative mx-auto mt-4 max-w-6xl flex items-center justify-between rounded-2xl border border-slate-200/70 dark:border-white/10 bg-white/80 dark:bg-ink-900/70 backdrop-blur-md px-4 sm:px-6 py-3 shadow-sm">
-        <a
-          href="#top"
+        <Link
+          href="/#top"
           className="flex items-center gap-2 font-heading font-bold tracking-tight text-lg cursor-pointer"
         >
           <span className="mono text-run">&gt;</span> raymart
           <span className="text-slate-400 dark:text-slate-500">.dev</span>
-        </a>
+        </Link>
         <div className="hidden md:flex items-center gap-7 text-sm text-slate-600 dark:text-slate-300">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="hover:text-ink-900 dark:hover:text-white transition-colors duration-200"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="flex items-center gap-2">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { MiniProject } from '@/data/projects';
 
 function CardMedia({ project }: { project: MiniProject }) {
@@ -102,6 +103,26 @@ export default function ProjectCard({ project }: { project: MiniProject }) {
             </li>
           ))}
         </ul>
+        {project.caseStudySlug && (
+          <Link
+            href={`/work/${project.caseStudySlug}/`}
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-run hover:text-run-400 transition-colors duration-200 cursor-pointer"
+          >
+            Read the case study
+            <svg
+              className="h-3.5 w-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </Link>
+        )}
       </div>
     </article>
   );

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 interface NavLink {
@@ -66,13 +67,13 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
           <ul>
             {links.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className="block rounded-lg px-4 py-3 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-ink-900 dark:hover:text-white transition-colors duration-200 cursor-pointer"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

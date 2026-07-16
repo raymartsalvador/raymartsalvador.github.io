@@ -20,6 +20,8 @@ export interface FeaturedProject {
   reversed?: boolean;
   /** one-line real, verifiable result (users, volume, time saved) — leave unset until known */
   outcome?: string;
+  /** slug of a case study under /work/[slug]/ */
+  caseStudySlug?: string;
 }
 
 export interface MiniProject {
@@ -38,6 +40,8 @@ export interface MiniProject {
   internal?: boolean;
   /** one-line real, verifiable result (users, volume, time saved) — leave unset until known */
   outcome?: string;
+  /** slug of a case study under /work/[slug]/ */
+  caseStudySlug?: string;
 }
 
 export const featuredProjects: FeaturedProject[] = [
@@ -52,6 +56,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       'A platform for schools and training centers to design, bulk-generate, and verify certificates. I built the <strong class="font-medium text-ink-900 dark:text-white">drag-and-drop template builder</strong>, CSV-driven bulk generation, automated email delivery, and a public <strong class="font-medium text-ink-900 dark:text-white">QR-code verification</strong> flow — hosted in-region for data-privacy compliance.',
     tags: ['Next.js', 'Supabase', 'PostgreSQL', 'QR Verification'],
+    caseStudySlug: 'certify',
   },
   {
     slug: 'peyg',
@@ -65,6 +70,7 @@ export const featuredProjects: FeaturedProject[] = [
       'Lets sellers and freelancers launch a branded mini-site with structured lead capture in <strong class="font-medium text-ink-900 dark:text-white">~5 minutes</strong>. I built subdomain provisioning, a business-verification workflow, and an inquiry system that turns scattered social-media messages into organized, trackable leads.',
     tags: ['Next.js', 'Supabase', 'Multi-tenant', 'Subdomains'],
     reversed: true,
+    caseStudySlug: 'peyg',
   },
 ];
 
@@ -79,6 +85,7 @@ export const miniProjects: MiniProject[] = [
     description:
       'Led the build of <strong class="font-medium text-ink-900 dark:text-white">QueueWise</strong> for the Business Permit & Licensing Office — priority-aware ticketing and live display boards serving 100–500 citizens daily, scaling to thousands during peak BOSS events.',
     tags: ['Full-stack', 'Realtime', 'High-throughput'],
+    caseStudySlug: 'bplo',
   },
   {
     slug: 'aerocomp',

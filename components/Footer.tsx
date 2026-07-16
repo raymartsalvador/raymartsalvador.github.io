@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -11,12 +13,12 @@ export default function Footer() {
           >
             Résumé
           </a>
-          <a
-            href="#top"
+          <Link
+            href="/#top"
             className="hover:text-ink-900 dark:hover:text-white transition-colors duration-200 cursor-pointer"
           >
             Back to top ↑
-          </a>
+          </Link>
         </div>
         <p>Built with Next.js &amp; Tailwind. Deployed on GitHub Pages.</p>
       </div>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { FeaturedProject } from '@/data/projects';
 
 export default function FeaturedProjectRow({
@@ -74,26 +75,48 @@ export default function FeaturedProjectRow({
             </li>
           ))}
         </ul>
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-7 inline-flex items-center gap-2 font-medium text-run hover:text-run-400 transition-colors duration-200 cursor-pointer"
-        >
-          Visit live site
-          <svg
-            className="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+        <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-medium text-run hover:text-run-400 transition-colors duration-200 cursor-pointer"
           >
-            <path d="M7 17L17 7M8 7h9v9" />
-          </svg>
-        </a>
+            Visit live site
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17L17 7M8 7h9v9" />
+            </svg>
+          </a>
+          {project.caseStudySlug && (
+            <Link
+              href={`/work/${project.caseStudySlug}/`}
+              className="inline-flex items-center gap-2 font-medium text-ink-900 dark:text-white hover:text-run dark:hover:text-run transition-colors duration-200 cursor-pointer"
+            >
+              Read the case study
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </Link>
+          )}
+        </div>
       </div>
     </article>
   );
