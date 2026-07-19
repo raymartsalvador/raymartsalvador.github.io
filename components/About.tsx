@@ -46,9 +46,9 @@ export default function About() {
                 deploy, and the unglamorous operating that comes after launch.
               </p>
               <p>
-                Outside work I&apos;m part of the DOST-backed PUP Pylon startup incubator, and I
-                give back through panels and hands-on workshops for the next batch of engineers at
-                my alma mater.
+                Outside work I give back through startup panels and hands-on workshops — from
+                Demo Day panels at the DOST-backed PUP Pylon TBI to embedded-systems seminars for
+                the next batch of engineers at my alma mater.
               </p>
             </div>
             <dl className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">

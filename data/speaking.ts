@@ -39,7 +39,7 @@ export const speakingEntries: SpeakingEntry[] = [
     org: 'DOST · PUP Pylon TBI',
     date: 'June 2025',
     description:
-      'Pitched a product venture to a panel of DOST, DTI, and investor judges as an incubatee of the DOST-backed PUP Pylon Technology Business Incubator.',
+      'Pitched a product venture to a panel of DOST, DTI, and investor judges at the DOST-backed PUP Pylon TBI Cohort 1 Demo Day.',
     image: '/assets/images/speaking/demo-day.jpg',
     alt: 'Raymart Salvador pitching on stage at the DOST PUP Pylon TBI Demo Day',
   },
