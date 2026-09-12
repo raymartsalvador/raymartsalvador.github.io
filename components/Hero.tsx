@@ -11,86 +11,81 @@ const socials = [
   },
 ];
 
+const stats = [
+  { value: '3+', label: 'years shipping' },
+  { value: '2,500+', label: 'clearances processed' },
+  { value: '2', label: 'SaaS products live' },
+  { value: '.NET + JS', label: 'day & night stacks' },
+];
+
 export default function Hero() {
   return (
-    <section id="top" className="relative grid-bg overflow-hidden">
-      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[380px] w-[760px] rounded-full bg-run/20 blur-[120px]" />
-      <div className="relative mx-auto max-w-6xl px-6 pt-36 pb-16 sm:pt-40 sm:pb-20">
-        <p className="mono text-sm text-run mb-4 reveal">
-          {"// full-stack developer · philippines"}
-        </p>
-        <h1 className="font-heading font-extrabold tracking-tight text-4xl sm:text-6xl leading-[1.03] max-w-4xl reveal">
-          I design, build, and ship <span className="text-run">real products</span> — end to end.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-300 leading-relaxed reveal">
-          I&apos;m{' '}
-          <span className="text-ink-900 dark:text-white font-medium">Raymart Salvador</span>, a
-          full-stack developer with 3+ years turning ideas into production systems — from an
-          enterprise clearance tool deployed across an{' '}
-          <span className="text-ink-900 dark:text-white font-medium">8,000-employee manufacturer</span>{' '}
-          to SaaS products I launched and run myself.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3 reveal">
-          <a
-            href="#work"
-            className="inline-flex items-center gap-2 rounded-lg bg-run px-5 py-3 font-medium text-ink-950 hover:bg-run-400 transition-colors duration-200 cursor-pointer"
-          >
-            See the work
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 5v14M6 13l6 6 6-6" />
-            </svg>
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-300 dark:border-white/15 px-5 py-3 font-medium text-ink-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 cursor-pointer"
-          >
-            Get in touch
-          </a>
-          <div className="flex items-center gap-1 pl-2">
-            {socials.map((s) => (
+    <section id="top" className="relative overflow-hidden">
+      <div className="mx-auto max-w-6xl px-6 pt-32 pb-16 sm:pt-40 sm:pb-24">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
+          <div className="lg:col-span-8">
+            <p className="label text-run dark:text-run-soft mb-5 reveal">
+              Full-stack developer · Philippines
+            </p>
+            <h1 className="font-heading font-semibold tracking-tight text-[2.35rem] sm:text-5xl lg:text-[3.35rem] leading-[1.08] text-ink-900 dark:text-paper reveal">
+              I design, build, and ship real products — end to end.
+            </h1>
+            <p className="mt-7 max-w-measure text-lg sm:text-xl text-ink-700 dark:text-paper-200/85 leading-relaxed reveal">
+              I&apos;m{' '}
+              <span className="text-ink-900 dark:text-paper font-semibold">Raymart Salvador</span>.
+              For 3+ years I&apos;ve turned messy processes into production systems — from an
+              enterprise clearance tool across an{' '}
+              <span className="text-ink-900 dark:text-paper font-semibold">
+                8,000-employee manufacturer
+              </span>{' '}
+              to SaaS products I launched and still run myself.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-3 reveal">
               <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="grid place-items-center h-11 w-11 rounded-lg text-slate-500 dark:text-slate-400 hover:text-ink-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 cursor-pointer"
+                href="#work"
+                className="inline-flex items-center gap-2 bg-ink-900 dark:bg-paper px-5 py-3 font-medium text-paper dark:text-ink-900 hover:bg-run dark:hover:bg-run dark:hover:text-paper transition-colors duration-200 cursor-pointer"
               >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d={s.path} />
-                </svg>
+                See the work
               </a>
-            ))}
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 border border-ink-900/20 dark:border-paper/25 px-5 py-3 font-medium text-ink-900 dark:text-paper hover:border-run dark:hover:border-run-soft hover:text-run dark:hover:text-run-soft transition-colors duration-200 cursor-pointer"
+              >
+                Get in touch
+              </a>
+              <div className="flex items-center gap-1 sm:pl-2">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="grid place-items-center h-11 w-11 text-ink-700/70 dark:text-paper-200/70 hover:text-run dark:hover:text-run-soft transition-colors duration-200 cursor-pointer"
+                  >
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d={s.path} />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 mono text-sm text-slate-500 dark:text-slate-400 reveal">
-          <span>
-            <span className="text-ink-900 dark:text-white font-medium">3+ yrs</span> shipping
-          </span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600">/</span>
-          <span>
-            <span className="text-ink-900 dark:text-white font-medium">2,500+</span> clearances processed
-          </span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600">/</span>
-          <span>
-            <span className="text-ink-900 dark:text-white font-medium">2</span> SaaS products live
-          </span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600">/</span>
-          <span>
-            <span className="text-ink-900 dark:text-white font-medium">.NET</span> +{' '}
-            <span className="text-ink-900 dark:text-white font-medium">JS</span> stacks
-          </span>
+          <dl className="lg:col-span-4 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-ink-900/10 dark:border-paper/15 pt-8 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8 reveal">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <dt className="label text-ink-700/60 dark:text-paper-200/50">{s.label}</dt>
+                <dd className="mt-2 font-heading text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900 dark:text-paper">
+                  {s.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
+      </div>
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="rule text-ink-900 dark:text-paper" />
       </div>
     </section>
   );

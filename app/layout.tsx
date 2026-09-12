@@ -1,25 +1,25 @@
 import type { Metadata } from 'next';
-import { Archivo, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { Fraunces, Source_Sans_3, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
-const archivo = Archivo({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-archivo',
+  weight: ['500', '600'],
+  variable: '--font-fraunces',
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const sourceSans = Source_Sans_3({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-space-grotesk',
+  weight: ['400', '600'],
+  variable: '--font-source-sans',
   display: 'swap',
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-jetbrains-mono',
+  weight: ['400'],
+  variable: '--font-ibm-plex-mono',
   display: 'swap',
 });
 
@@ -64,7 +64,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Person schema for rich search results.
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -88,7 +87,6 @@ const personJsonLd = {
   ],
 };
 
-// Runs before paint to avoid a light/dark flash on load.
 const themeScript = `(function(){try{var s=localStorage.getItem('theme');if(s==='light')document.documentElement.classList.remove('dark');else document.documentElement.classList.add('dark');}catch(e){}})();`;
 
 export default function RootLayout({
@@ -99,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark scroll-smooth ${archivo.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`dark scroll-smooth ${fraunces.variable} ${sourceSans.variable} ${ibmPlexMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -109,7 +107,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className="bg-white text-ink-900 dark:bg-ink-950 dark:text-slate-100 font-body antialiased selection:bg-run/30">
+      <body className="bg-paper text-ink-900 dark:bg-ink-950 dark:text-paper-100 font-body antialiased selection:bg-run/25 selection:text-ink-900 dark:selection:text-paper">
         {children}
       </body>
     </html>

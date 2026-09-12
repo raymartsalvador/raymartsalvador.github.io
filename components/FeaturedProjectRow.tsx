@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import type { FeaturedProject } from '@/data/projects';
 
+function toPlainText(value: string) {
+  return value.replace(/<[^>]*>/g, '').trim();
+}
+
 export default function FeaturedProjectRow({
   project,
   index,
@@ -9,22 +13,17 @@ export default function FeaturedProjectRow({
   index: number;
 }) {
   const { reversed } = project;
-  const spacing = index === 0 ? 'mt-14' : 'mt-16 sm:mt-20';
+  const spacing = index === 0 ? 'mt-16' : 'mt-20 sm:mt-28';
 
   return (
-    <article
-      className={`${spacing} grid lg:grid-cols-2 gap-8 lg:gap-12 items-center reveal`}
-    >
+    <article className={`${spacing} grid lg:grid-cols-2 gap-8 lg:gap-14 items-center reveal`}>
       <div
-        className={`frame border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-900/5 dark:shadow-black/40 order-1 ${
+        className={`frame border border-ink-900/15 dark:border-paper/15 order-1 ${
           reversed ? 'lg:order-2' : ''
         }`}
       >
-        <div className="frame-bar bg-slate-100 dark:bg-ink-800 border-b border-slate-200 dark:border-white/10">
-          <span className="frame-dot bg-red-400" />
-          <span className="frame-dot bg-amber-400" />
-          <span className="frame-dot bg-green-400" />
-          <span className="mono text-[11px] text-slate-400 dark:text-slate-500 ml-3 truncate">
+        <div className="frame-bar bg-paper-200 dark:bg-ink-800 border-b border-ink-900/10 dark:border-paper/10">
+          <span className="mono text-[11px] text-ink-700/60 dark:text-paper-200/50 truncate">
             {project.domain}
           </span>
         </div>
@@ -39,38 +38,27 @@ export default function FeaturedProjectRow({
         </a>
       </div>
       <div className={`order-2 ${reversed ? 'lg:order-1' : ''}`}>
-        <div className="flex items-center gap-2 mono text-xs text-run">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-run/10 px-2.5 py-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-run" /> LIVE
-          </span>
-          <span className="text-slate-400 dark:text-slate-500">{project.category}</span>
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="label text-run dark:text-run-soft">Live</span>
+          <span className="text-sm text-ink-700/70 dark:text-paper-200/60">{project.category}</span>
         </div>
-        <h3 className="mt-4 font-heading text-2xl sm:text-3xl font-bold">{project.name}</h3>
-        <p
-          className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: project.description }}
-        />
+        <h3 className="mt-3 font-heading text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900 dark:text-paper">
+          {project.name}
+        </h3>
+        <p className="mt-4 text-ink-700 dark:text-paper-200/80 leading-relaxed">
+          {toPlainText(project.description)}
+        </p>
         {project.outcome && (
-          <p className="mt-5 flex items-start gap-2 font-medium text-ink-900 dark:text-white">
-            <svg
-              className="h-4 w-4 mt-1 text-run shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M22 7l-8.5 8.5-5-5L2 17" />
-              <path d="M16 7h6v6" />
-            </svg>
+          <p className="mt-5 border-l-2 border-run-400 pl-4 font-medium text-ink-900 dark:text-paper">
             {project.outcome}
           </p>
         )}
-        <ul className="mt-6 flex flex-wrap gap-2 mono text-xs text-slate-500 dark:text-slate-400">
+        <ul className="mt-6 flex flex-wrap gap-2 text-xs text-ink-700/70 dark:text-paper-200/60">
           {project.tags.map((tag) => (
-            <li key={tag} className="rounded-md border border-slate-200 dark:border-white/10 px-2.5 py-1">
+            <li
+              key={tag}
+              className="border border-ink-900/12 dark:border-paper/15 px-2.5 py-1"
+            >
               {tag}
             </li>
           ))}
@@ -80,40 +68,18 @@ export default function FeaturedProjectRow({
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-medium text-run hover:text-run-400 transition-colors duration-200 cursor-pointer"
+            className="inline-flex items-center gap-2 font-medium text-run dark:text-run-soft hover:text-run-600 dark:hover:text-run-soft transition-colors duration-200 cursor-pointer"
           >
             Visit live site
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M7 17L17 7M8 7h9v9" />
-            </svg>
+            <span aria-hidden="true">↗</span>
           </a>
           {project.caseStudySlug && (
             <Link
               href={`/work/${project.caseStudySlug}/`}
-              className="inline-flex items-center gap-2 font-medium text-ink-900 dark:text-white hover:text-run dark:hover:text-run transition-colors duration-200 cursor-pointer"
+              className="inline-flex items-center gap-2 font-medium text-ink-900 dark:text-paper hover:text-run dark:hover:text-run-soft transition-colors duration-200 cursor-pointer"
             >
               Read the case study
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M13 5l7 7-7 7" />
-              </svg>
+              <span aria-hidden="true">→</span>
             </Link>
           )}
         </div>

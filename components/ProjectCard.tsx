@@ -1,15 +1,17 @@
 import Link from 'next/link';
 import type { MiniProject } from '@/data/projects';
 
+function toPlainText(value: string) {
+  return value.replace(/<[^>]*>/g, '').trim();
+}
+
 function CardMedia({ project }: { project: MiniProject }) {
-  // Internal / on-prem system — intentional privacy treatment, no screenshot.
   if (project.internal) {
     return (
-      <div className="relative aspect-[16/10] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-ink-800 dark:to-ink-900 grid place-items-center overflow-hidden border-b border-slate-200 dark:border-white/10">
-        <div className="grid-bg absolute inset-0 opacity-60" />
+      <div className="relative aspect-[16/10] bg-paper-200 dark:bg-ink-800 grid place-items-center overflow-hidden border-b border-ink-900/10 dark:border-paper/10">
         <div className="relative flex flex-col items-center gap-3 px-6 text-center">
           <svg
-            className="h-10 w-10 text-slate-400 dark:text-slate-600"
+            className="h-8 w-8 text-ink-700/40 dark:text-paper-200/40"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -21,8 +23,9 @@ function CardMedia({ project }: { project: MiniProject }) {
             <rect x="3" y="11" width="18" height="11" rx="2" />
             <path d="M7 11V7a5 5 0 0110 0v4" />
           </svg>
-          <p className="mono text-[11px] leading-relaxed text-slate-500 dark:text-slate-400">
-            On-premise &amp; internal —<br />
+          <p className="text-xs leading-relaxed text-ink-700/60 dark:text-paper-200/50">
+            On-premise &amp; internal —
+            <br />
             not publicly viewable
           </p>
         </div>
@@ -38,11 +41,11 @@ function CardMedia({ project }: { project: MiniProject }) {
         alt={project.alt}
         loading="lazy"
         className={`w-full h-full object-cover object-top ${
-          project.url ? 'group-hover:scale-[1.03] transition-transform duration-300' : ''
+          project.url ? 'group-hover:scale-[1.02] transition-transform duration-500' : ''
         }`}
       />
       {project.badge && (
-        <span className="absolute bottom-2.5 right-2.5 mono text-[10px] text-white/90 bg-black/55 rounded px-1.5 py-0.5">
+        <span className="absolute bottom-2.5 right-2.5 text-[10px] tracking-wide text-paper bg-ink-950/70 px-1.5 py-0.5">
           {project.badge}
         </span>
       )}
@@ -50,9 +53,8 @@ function CardMedia({ project }: { project: MiniProject }) {
   );
 
   const mediaClasses =
-    'relative aspect-[16/10] overflow-hidden border-b border-slate-200 dark:border-white/10';
+    'relative aspect-[16/10] overflow-hidden border-b border-ink-900/10 dark:border-paper/10';
 
-  // Linked screenshot (client sites) vs static screenshot (internal gov display).
   return project.url ? (
     <a
       href={project.url}
@@ -69,36 +71,27 @@ function CardMedia({ project }: { project: MiniProject }) {
 
 export default function ProjectCard({ project }: { project: MiniProject }) {
   return (
-    <article className="reveal group flex flex-col rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 overflow-hidden hover:border-run/50 transition-colors duration-200">
+    <article className="reveal group flex flex-col bg-paper dark:bg-ink-950 overflow-hidden">
       <CardMedia project={project} />
       <div className="p-6 flex flex-col grow">
-        <p className="mono text-xs text-run">{project.category}</p>
-        <h4 className="mt-2 font-heading text-lg font-bold">{project.name}</h4>
-        <p
-          className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed grow"
-          dangerouslySetInnerHTML={{ __html: project.description }}
-        />
+        <p className="label text-run dark:text-run-soft">{project.category}</p>
+        <h4 className="mt-2 font-heading text-lg font-semibold tracking-tight text-ink-900 dark:text-paper">
+          {project.name}
+        </h4>
+        <p className="mt-3 text-sm text-ink-700 dark:text-paper-200/75 leading-relaxed grow">
+          {toPlainText(project.description)}
+        </p>
         {project.outcome && (
-          <p className="mt-4 flex items-start gap-2 text-sm font-medium text-ink-900 dark:text-white">
-            <svg
-              className="h-4 w-4 mt-0.5 text-run shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M22 7l-8.5 8.5-5-5L2 17" />
-              <path d="M16 7h6v6" />
-            </svg>
+          <p className="mt-4 border-l-2 border-run-400 pl-3 text-sm font-medium text-ink-900 dark:text-paper">
             {project.outcome}
           </p>
         )}
-        <ul className="mt-5 flex flex-wrap gap-2 mono text-xs text-slate-500 dark:text-slate-400">
+        <ul className="mt-5 flex flex-wrap gap-1.5 text-xs text-ink-700/65 dark:text-paper-200/55">
           {project.tags.map((tag) => (
-            <li key={tag} className="rounded-md border border-slate-200 dark:border-white/10 px-2 py-1">
+            <li
+              key={tag}
+              className="border border-ink-900/10 dark:border-paper/12 px-2 py-0.5"
+            >
               {tag}
             </li>
           ))}
@@ -106,21 +99,10 @@ export default function ProjectCard({ project }: { project: MiniProject }) {
         {project.caseStudySlug && (
           <Link
             href={`/work/${project.caseStudySlug}/`}
-            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-run hover:text-run-400 transition-colors duration-200 cursor-pointer"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-run dark:text-run-soft hover:text-run-600 dark:hover:text-run-soft transition-colors duration-200 cursor-pointer"
           >
             Read the case study
-            <svg
-              className="h-3.5 w-3.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
+            <span aria-hidden="true">→</span>
           </Link>
         )}
       </div>

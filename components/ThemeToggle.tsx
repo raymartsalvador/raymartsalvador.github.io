@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState<boolean | null>(null);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
@@ -24,8 +24,8 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Toggle color theme"
-      aria-pressed={isDark ?? undefined}
-      className="grid place-items-center h-9 w-9 rounded-lg border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-ink-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 cursor-pointer"
+      aria-pressed={isDark}
+      className="grid place-items-center h-9 w-9 border border-ink-900/15 dark:border-paper/20 text-ink-700 dark:text-paper-200 hover:text-run dark:hover:text-run-soft hover:border-run dark:hover:border-run-soft transition-colors duration-200 cursor-pointer"
     >
       <svg
         className="h-4 w-4 hidden dark:block"

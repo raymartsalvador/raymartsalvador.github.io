@@ -15,89 +15,50 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-6 pb-24">
-      <div className="relative overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 px-6 sm:px-12 py-16 text-center grid-bg">
-        <div className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 h-72 w-[600px] rounded-full bg-run/15 blur-[110px]" />
-        <div className="relative reveal">
-          <p className="mono text-sm text-run">contact</p>
-          <h2 className="mt-3 font-heading text-3xl sm:text-5xl font-bold tracking-tight">
-            Let&apos;s build something.
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-slate-600 dark:text-slate-300">
-            Open to full-stack roles and select freelance work. The fastest way to reach me is
-            email.
-          </p>
-          <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+    <section id="contact" className="bg-ink-900 text-paper dark:bg-paper dark:text-ink-900">
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+        <div className="grid lg:grid-cols-12 gap-10 reveal">
+          <div className="lg:col-span-7">
+            <p className="label text-run-soft dark:text-run">Contact</p>
+            <h2 className="mt-3 font-heading text-3xl sm:text-5xl font-semibold tracking-tight">
+              Let&apos;s build something.
+            </h2>
+            <p className="mt-5 text-lg text-paper/80 dark:text-ink-700 leading-relaxed max-w-measure">
+              Open to full-stack roles and select freelance work. The fastest way to reach me is
+              email.
+            </p>
+          </div>
+          <div className="lg:col-span-5 flex flex-col gap-3 lg:pt-10">
             <a
               href="mailto:raymartgsalvador@gmail.com"
-              className="inline-flex items-center gap-2 rounded-lg bg-run px-5 py-3 font-medium text-ink-950 hover:bg-run-400 transition-colors duration-200 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-paper text-ink-900 dark:bg-ink-900 dark:text-paper px-5 py-3 font-medium hover:bg-run-soft hover:text-ink-900 dark:hover:bg-run dark:hover:text-paper transition-colors duration-200 cursor-pointer"
             >
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="M2 6l10 7 10-7" />
-              </svg>
               raymartgsalvador@gmail.com
             </a>
             <CopyEmailButton />
             <a
               href="/assets/files/RaymartSalvador.pdf"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 dark:border-white/15 px-5 py-3 font-medium text-ink-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 border border-paper/40 dark:border-ink-900/30 px-5 py-3 font-medium hover:border-run-soft hover:text-run-soft dark:hover:border-run dark:hover:text-run transition-colors duration-200 cursor-pointer"
             >
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
-              </svg>
               Résumé
             </a>
-          </div>
-          <div className="mt-8 flex items-center justify-center gap-5 text-slate-500 dark:text-slate-400">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="hover:text-ink-900 dark:hover:text-white transition-colors duration-200 cursor-pointer"
-              >
-                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d={s.path} />
-                </svg>
-              </a>
-            ))}
-            <span className="inline-flex items-center gap-2 text-sm">
-              <svg
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Biñan, Laguna, PH
-            </span>
+            <div className="mt-4 flex flex-wrap items-center gap-5 text-paper/65 dark:text-ink-700/70">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="hover:text-run-soft dark:hover:text-run transition-colors duration-200 cursor-pointer"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d={s.path} />
+                  </svg>
+                </a>
+              ))}
+              <span className="text-sm">Biñan, Laguna, PH</span>
+            </div>
           </div>
         </div>
       </div>

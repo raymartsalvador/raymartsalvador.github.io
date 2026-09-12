@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 interface NavLink {
   href: string;
@@ -10,50 +10,78 @@ interface NavLink {
 
 export default function MobileMenu({ links }: { links: NavLink[] }) {
   const [open, setOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuId = useId();
 
   useEffect(() => {
     if (!open) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const panel = panelRef.current;
+    const focusables = panel?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled])',
+    );
+    focusables?.[0]?.focus();
+
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab' || !focusables?.length) return;
+      const list = Array.from(focusables);
+      const first = list[0];
+      const last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
+
+    function onPointerDown(e: MouseEvent | TouchEvent) {
+      const target = e.target as Node;
+      if (panelRef.current?.contains(target) || buttonRef.current?.contains(target)) {
+        return;
+      }
+      setOpen(false);
+    }
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('touchstart', onPointerDown);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('touchstart', onPointerDown);
+      previouslyFocused?.focus?.();
+    };
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden relative">
       <button
+        ref={buttonRef}
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        aria-controls="mobile-menu"
+        aria-controls={menuId}
         aria-label={open ? 'Close menu' : 'Open menu'}
-        className="grid place-items-center h-9 w-9 rounded-lg border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-ink-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 cursor-pointer"
+        className="grid place-items-center h-9 w-9 border border-ink-900/15 dark:border-paper/20 text-ink-700 dark:text-paper-200 hover:text-run dark:hover:text-run-soft hover:border-run dark:hover:border-run-soft transition-colors duration-200 cursor-pointer"
       >
         {open ? (
-          <svg
-            className="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
+          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         ) : (
-          <svg
-            className="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
+          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16" />
           </svg>
         )}
@@ -61,8 +89,12 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
 
       {open && (
         <div
-          id="mobile-menu"
-          className="absolute top-full inset-x-0 mt-2 rounded-2xl border border-slate-200/70 dark:border-white/10 bg-white/95 dark:bg-ink-900/95 backdrop-blur-md shadow-lg p-3"
+          ref={panelRef}
+          id={menuId}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
+          className="absolute top-full right-0 mt-2 w-56 border border-ink-900/15 dark:border-paper/15 bg-paper dark:bg-ink-950 shadow-lg p-2"
         >
           <ul>
             {links.map((l) => (
@@ -70,7 +102,7 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
                 <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-ink-900 dark:hover:text-white transition-colors duration-200 cursor-pointer"
+                  className="block px-4 py-3 text-ink-900 dark:text-paper hover:bg-paper-200 dark:hover:bg-ink-800 hover:text-run dark:hover:text-run-soft transition-colors duration-200 cursor-pointer"
                 >
                   {l.label}
                 </Link>
@@ -80,21 +112,9 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
           <a
             href="/assets/files/RaymartSalvador.pdf"
             onClick={() => setOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-run px-4 py-3 font-medium text-ink-950 hover:bg-run-400 transition-colors duration-200 cursor-pointer"
+            className="mt-1 flex items-center justify-center gap-2 bg-ink-900 dark:bg-paper px-4 py-3 font-medium text-paper dark:text-ink-900 hover:bg-run dark:hover:bg-run dark:hover:text-paper transition-colors duration-200 cursor-pointer"
           >
             Résumé
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
-            </svg>
           </a>
         </div>
       )}
