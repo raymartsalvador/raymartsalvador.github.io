@@ -16,7 +16,7 @@ export default function Experience() {
             <article className="reveal border-t border-ink-900/10 dark:border-paper/15 pt-8">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-heading text-xl font-semibold text-ink-900 dark:text-paper">
-                  Full-Stack Developer
+                  Full-Stack Software Engineer
                 </h3>
                 <p className="mono text-xs text-ink-700/60 dark:text-paper-200/50">
                   Apr 2024 — Present
@@ -57,7 +57,7 @@ export default function Experience() {
             <article className="reveal border-t border-ink-900/10 dark:border-paper/15 pt-8">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-heading text-xl font-semibold text-ink-900 dark:text-paper">
-                  Independent Full-Stack Developer
+                  Independent Full-Stack Engineer
                 </h3>
                 <p className="mono text-xs text-ink-700/60 dark:text-paper-200/50">
                   2023 — Present

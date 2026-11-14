@@ -54,8 +54,8 @@ export const featuredProjects: FeaturedProject[] = [
     image: '/assets/images/projects/certify.webp',
     alt: 'Certify+ landing page — certificate generation platform',
     description:
-      'A platform for schools and training centers to design, bulk-generate, and verify certificates. I built the <strong class="font-medium text-ink-900 dark:text-white">drag-and-drop template builder</strong>, CSV-driven bulk generation, automated email delivery, and a public <strong class="font-medium text-ink-900 dark:text-white">QR-code verification</strong> flow — hosted in-region for data-privacy compliance.',
-    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'QR Verification'],
+      'A platform for schools and training centers to design, bulk-generate, and verify certificates. I built the <strong class="font-medium text-ink-900 dark:text-white">drag-and-drop template builder</strong> and CSV-driven bulk generation, hosted in-region for data-privacy compliance. Public <strong class="font-medium text-ink-900 dark:text-white">QR-code verification</strong> and bulk email delivery are in rollout.',
+    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'Bulk Generation'],
     caseStudySlug: 'certify',
   },
   {
@@ -75,6 +75,15 @@ export const featuredProjects: FeaturedProject[] = [
 ];
 
 export const miniProjects: MiniProject[] = [
+  {
+    slug: 'toshiba',
+    name: 'E-Resignation & Clearance',
+    category: 'Enterprise · Toshiba',
+    internal: true,
+    description:
+      'Sole developer on an on-premise clearance system for an 8,000-employee manufacturer — digitized a paper process, processed <strong class="font-medium text-ink-900 dark:text-white">2,500+ resignations</strong> in 2 years, and cut turnaround from weeks to days.',
+    tags: ['ASP.NET Core', 'SQL Server'],
+  },
   {
     slug: 'bplo',
     name: 'BPLO Queueing System',
@@ -102,11 +111,12 @@ export const miniProjects: MiniProject[] = [
     slug: 'stayflix',
     name: 'StayFlix',
     category: 'Client · Booking Platform',
+    badge: 'beta',
     url: 'https://www.stayflix.ph',
     image: '/assets/images/projects/stayflix.webp',
     alt: 'StayFlix — verified Pansol resort booking platform',
     description:
-      'A resort-booking platform for verified Pansol hot-spring resorts — searchable listings with price, group-size and amenity filters, map view, saved stays, and a reservation flow.',
+      'A resort-booking platform for verified Pansol hot-spring resorts, launched in beta. I built the listing search with price, group-size and amenity filters, map view, saved stays, and the reservation flow; the first verified resorts are being onboarded now.',
     tags: ['Booking', 'Search & Filters'],
   },
   {
@@ -141,14 +151,5 @@ export const miniProjects: MiniProject[] = [
     description:
       'Marketing site for a Japanese-inspired coffee bar in San Pedro — menu, catering packages, and a coffee-booth booking flow, in a clean minimalist theme.',
     tags: ['Web Design', 'CMS'],
-  },
-  {
-    slug: 'toshiba',
-    name: 'E-Resignation & Clearance',
-    category: 'Enterprise · Toshiba',
-    internal: true,
-    description:
-      'Sole developer on an on-premise clearance system for an 8,000-employee manufacturer — digitized a paper process, processed <strong class="font-medium text-ink-900 dark:text-white">2,500+ resignations</strong> in 2 years, and cut turnaround from weeks to days.',
-    tags: ['ASP.NET Core', 'SQL Server'],
   },
 ];

@@ -1,6 +1,6 @@
 # raymartsalvador.github.io
 
-Personal portfolio for **Raymart Salvador** — full-stack developer.
+Personal portfolio for **Raymart Salvador** — full-stack software engineer.
 
 Built with **Next.js (App Router)** + **Tailwind CSS**, statically exported and
 deployed to **GitHub Pages**.
