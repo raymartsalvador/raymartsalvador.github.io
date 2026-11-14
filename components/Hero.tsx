@@ -15,7 +15,7 @@ const stats = [
   { value: '3+', label: 'years shipping' },
   { value: '2,500+', label: 'clearances processed' },
   { value: '2', label: 'SaaS products live' },
-  { value: '.NET + JS', label: 'day & night stacks' },
+  { value: '6', label: 'production sites shipped' },
 ];
 
 export default function Hero() {
@@ -25,7 +25,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
           <div className="lg:col-span-8">
             <p className="label text-run dark:text-run-soft mb-5 reveal">
-              Full-stack developer · Philippines
+              Full-stack software engineer · .NET + Next.js · Philippines
             </p>
             <h1 className="font-heading font-semibold tracking-tight text-[2.35rem] sm:text-5xl lg:text-[3.35rem] leading-[1.08] text-ink-900 dark:text-paper reveal">
               I design, build, and ship real products — end to end.

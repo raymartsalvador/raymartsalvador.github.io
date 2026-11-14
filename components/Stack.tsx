@@ -1,7 +1,7 @@
 const groups = [
   {
     title: 'Languages',
-    items: ['C#', 'TypeScript', 'JavaScript', 'SQL', 'Python', 'Java'],
+    items: ['C#', 'TypeScript', 'JavaScript', 'SQL'],
   },
   {
     title: 'Frameworks',
@@ -9,11 +9,11 @@ const groups = [
   },
   {
     title: 'Cloud & Data',
-    items: ['Azure', 'Supabase', 'PostgreSQL', 'SQL Server', 'Docker'],
+    items: ['Supabase', 'PostgreSQL', 'SQL Server'],
   },
   {
     title: 'DevOps & Tools',
-    items: ['CI/CD', 'Git', 'GitLab', 'IIS', 'Postman'],
+    items: ['CI/CD (GitHub Actions)', 'Git', 'GitLab', 'IIS', 'Postman'],
   },
 ];
 
