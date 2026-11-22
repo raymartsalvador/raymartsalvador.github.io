@@ -24,11 +24,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 const description =
-  'Raymart Salvador — Full-stack developer. I build and ship production web apps end-to-end, from enterprise systems at an 8,000-employee manufacturer to independent SaaS products like Certify+ and Peyg.';
+  'Raymart Salvador — full-stack software engineer (.NET + Next.js). I build and ship production web apps end-to-end, from enterprise systems at an 8,000-employee manufacturer to independent SaaS products like Certify+ and Peyg.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://raymartsalvador.github.io'),
-  title: 'Raymart Salvador — Full-Stack Developer',
+  title: 'Raymart Salvador — Full-Stack Software Engineer',
   description,
   authors: [{ name: 'Raymart Salvador' }],
   icons: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: 'Raymart Salvador — Full-Stack Developer',
+    title: 'Raymart Salvador — Full-Stack Software Engineer',
     description:
       'I build and ship production web apps end-to-end — enterprise systems and independent SaaS products.',
     url: 'https://raymartsalvador.github.io',
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
         url: '/assets/images/og.png',
         width: 1200,
         height: 630,
-        alt: 'Raymart Salvador — Full-Stack Developer',
+        alt: 'Raymart Salvador — Full-Stack Software Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Raymart Salvador — Full-Stack Developer',
+    title: 'Raymart Salvador — Full-Stack Software Engineer',
     description:
       'I build and ship production web apps end-to-end — enterprise systems and independent SaaS products.',
     images: ['/assets/images/og.png'],
@@ -70,7 +70,7 @@ const personJsonLd = {
   name: 'Raymart Salvador',
   url: 'https://raymartsalvador.github.io',
   email: 'mailto:raymartgsalvador@gmail.com',
-  jobTitle: 'Full-Stack Developer',
+  jobTitle: 'Full-Stack Software Engineer',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Biñan',

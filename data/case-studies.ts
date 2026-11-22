@@ -34,17 +34,20 @@ export interface CaseStudy {
 }
 
 export const caseStudies: CaseStudy[] = [
+  // Certify+ wording reflects what is live today (Nov 2026). When QR verification and
+  // bulk email ship on certify.cybernestsolution.com, move them back into `built`/`outcomes`
+  // and update the Certify+ card in data/projects.ts too.
   {
     slug: 'certify',
     name: 'Certify+',
     category: 'SaaS · Certificate Platform',
     oneLiner:
-      'A certificate platform for Philippine schools and training centers — design once, bulk-generate in seconds, verify with a QR scan.',
+      'A certificate platform for Philippine schools and training centers — design once, bulk-generate in seconds, with QR verification in rollout.',
     url: 'https://certify.cybernestsolution.com',
     domain: 'certify.cybernestsolution.com',
     heroImage: '/assets/images/projects/certify.webp',
     heroAlt: 'Certify+ landing page — certificate generation platform',
-    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'QR Verification'],
+    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'Bulk Generation'],
     problem: [
       'Most organizations in the Philippines still produce certificates by hand: names typed one at a time into design tools, mail-merge workarounds, recipients tracked across separate spreadsheets and email threads. There is no way to tell whether a certificate someone presents is authentic or tampered with.',
       'International platforms exist, but they charge in USD — typically $50+ a month — which prices out the local schools and training centers that need this most.',
@@ -52,26 +55,26 @@ export const caseStudies: CaseStudy[] = [
     built: [
       'A visual drag-and-drop template builder — logos, signatures, and dynamic recipient fields placed directly on the design, no document formatting fights.',
       'CSV-driven bulk generation: upload a recipient list and produce hundreds of personalized certificates in seconds.',
-      'Automated bulk email delivery — generate first, review the batch, then send each certificate to its recipient with no manual attachments.',
-      'A public QR-code verification flow: every certificate carries a unique QR code and verification URL anyone can check instantly, with instant revocation if one was issued in error.',
-      'Brand asset management and a partner-facing Business API for wiring certificate issuance into HR, LMS, or registrar workflows.',
+      'Brand asset management, so logos and signatures are uploaded once and reused across templates.',
+      'In rollout: a public QR-code verification flow (a unique QR code and verification URL on every certificate, with revocation if one was issued in error) and bulk email delivery that sends each certificate to its recipient after the batch is reviewed.',
+      'On the roadmap: a partner-facing Business API for wiring certificate issuance into HR, LMS, or registrar workflows.',
     ],
     architecture: [
       'Next.js frontend with Supabase and PostgreSQL behind it — one person can build, operate, and support the whole stack.',
       'Hosted in-region for data-privacy compliance, a hard requirement for schools handling student records.',
-      'Each certificate is issued with a unique verification identity, so authenticity checks work without an account.',
+      'Each certificate is issued with a unique verification identity, so the upcoming QR checks can work without an account.',
       'Freemium pricing built for the local market: a free-forever plan, with a company plan at ₱1,499/month instead of USD pricing.',
     ],
     outcomes: [
-      'Live in production and operated solo — design, build, deploy, and support.',
-      'Real organizations have generated hundreds of certificates through the platform.',
-      'Verification changed from "trust the paper" to a QR scan — every certificate issued is independently checkable.',
+      'Live at certify.cybernestsolution.com and operated solo — design, build, deploy, and support.',
+      'Template design and CSV bulk generation are live: a full batch of personalized certificates in seconds instead of typing names one at a time.',
+      'QR verification and bulk email are in rollout, moving verification from "trust the paper" to a scan.',
     ],
     gallery: [
       {
         src: '/assets/images/case-studies/certify-features.webp',
         alt: 'Certify+ feature suite — template builder, CSV bulk generation, QR verification',
-        caption: 'The core suite: visual builder, CSV bulk generation, QR verification, bulk email.',
+        caption: 'The feature suite: visual builder and CSV bulk generation live, with QR verification and bulk email in rollout.',
       },
       {
         src: '/assets/images/case-studies/certify-how.webp',
@@ -80,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     metaDescription:
-      'Case study: Certify+ — a certificate generation and QR-verification SaaS for Philippine schools and training centers, built and operated end-to-end by Raymart Salvador.',
+      'Case study: Certify+ — a certificate design and bulk-generation SaaS for Philippine schools and training centers, built and operated end-to-end by Raymart Salvador.',
   },
   {
     slug: 'peyg',

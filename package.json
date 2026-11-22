@@ -2,7 +2,7 @@
   "name": "raymartsalvador-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Raymart Salvador — full-stack developer portfolio",
+  "description": "Raymart Salvador — full-stack software engineer portfolio",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
